@@ -40,6 +40,6 @@
     }
   },
   "extra": {
-    "contao-manager-plugin": "Nekowonderland\\ExtendedEditors\\ContaoManager\\Plugin"
+    "contao-manager-plugin": "Nekowonderland\\ExtendedEditorsBundle\\ContaoManager\\Plugin"
   }
 }
