@@ -1,0 +1,45 @@
+{
+  "name": "nekowonderland/contao-extendededitors-bundle",
+  "type": "contao-bundle",
+  "description": "not yet",
+  "keywords": [
+    "contao"
+  ],
+  "homepage": "",
+  "license": "LGPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Stefan Heimes",
+      "email": "stefan_heimes@hotmail.com",
+      "homepage": "http://www.men-at-work.de",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "",
+    "wiki": "",
+    "irc": "",
+    "source": ""
+  },
+  "require": {
+    "php": "^7.2",
+    "contao/core-bundle": "^4.4.8"
+  },
+  "require-dev": {
+    "phpcq/all-tasks": "~1.2",
+    "contao/manager-bundle": "~4.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nekowonderland\\ExtendedEditorsBundle\\": "src",
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Nekowonderland\\ExtendedEditorsBundle\\Test\\": "tests"
+    }
+  },
+  "extra": {
+    "contao-manager-plugin": "Nekowonderland\\ExtendedEditors\\ContaoManager\\Plugin"
+  }
+}
