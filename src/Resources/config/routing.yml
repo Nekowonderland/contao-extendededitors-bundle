@@ -1,0 +1,3 @@
+eeb.backend.search:
+  path:     /_be_eeb/search
+  defaults: { _controller: Nekowonderland\ExtendedEditorsBundle\Controller\Search::runAction, _scope: backend, _token_check: true }

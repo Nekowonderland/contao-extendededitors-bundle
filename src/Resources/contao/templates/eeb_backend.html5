@@ -1,0 +1,60 @@
+<html>
+<head>
+    <style>
+
+    </style>
+    <script>
+        window.addEvent(
+            'domready',
+            function () {
+                // Take the value from the seach area back in the search.
+                $('eeb-container--search').addEvent(
+                    'keyup:keys(backspace)',
+                    function () {
+                        if (this.value === '') {
+                            var serachAreaValue = $('eeb-container--search-area').getSelected().get("value");
+                            var searchOptions = $$('#eeb-container--search-area option[value=]').set("selected", "selected");
+                            $('eeb-container--search').set('value', serachAreaValue);
+                        }
+                    }
+                );
+
+                // If a search area is found in the first part of the search switch it to the search area.
+                $('eeb-container--search').addEvent(
+                    'keyup:keys(space)',
+                    function () {
+                        var selectValue = $('eeb-container--search-area').getSelected().get("value");
+                        if (selectValue[0] === '' && this.value !== '' && this.value.split(' ')[0] !== '') {
+                            var searchString = this.value.split(' ');
+                            var searchOptions = $$('#eeb-container--search-area option[value=' + searchString[0] + ']');
+                            if (searchOptions.length !== 0) {
+                                $(searchOptions[0]).set("selected", "selected");
+                                $(this).set('value', searchString.splice(1, searchString.length - 1).join(' '));
+                            }
+                        }
+                    }
+                );
+            }
+        );
+    </script>
+</head>
+<body>
+<div id="eeb_container--search">
+    <select id="eeb-container--search-area">
+        <option value="" selected="selected"></option>
+        <?php foreach ($this->areas as $area): ?>
+            <option value="<?= $area ?>"><?= $area ?></option>
+        <?php endforeach; ?>
+    </select>
+    <input id="eeb-container--search" type="text" list="eeb-container--huge-list"/>
+    <datalist id="eeb-container--huge-list">
+        <?php foreach ($this->areas as $area): ?>
+            <option value="<?= $area ?>"/>
+        <?php endforeach; ?>
+    </datalist>
+</div>
+<div id="eeb_continer--resultlist">
+
+</div>
+</body>
+</html>
